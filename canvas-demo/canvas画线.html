@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas-demo1</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <canvas id="canvas" width="100" height="100"></canvas>
+    <script>
+      const canvas = document.getElementById("canvas")
+      //获取屏幕宽高
+      canvas.width = document.documentElement.clientWidth
+      // body的高度由里面的内容决定
+      canvas.height = document.documentElement.clientHeight
+      //用canvas画线
+      const ctx = canvas.getContext("2d")
+      ctx.fillStyle = "black"
+      ctx.strokeStyle = "none"
+      ctx.lineWidth = 8
+      ctx.lineCap = "round"
+
+      let painting = false
+      let last
+
+      // 是否支持触屏
+      let isTouchDevice = "ontouchstart" in document.documentElement
+      if (isTouchDevice) {
+        canvas.ontouchstart = (e) => {
+          let x = e.touches[0].clientX
+          let y = e.touches[0].clientY
+          last = [x, y]
+          canvas.ontouchmove = (e) => {
+            let x = e.touches[0].clientX
+            let y = e.touches[0].clientY
+            drawLine(last[0], last[1], x, y)
+            last = [x, y]
+          }
+        }
+      } else {
+        //鼠标按下
+        canvas.onmousedown = (e) => {
+          painting = true
+          // 第一次作为下一次的上一次
+          last = [e.clientX, e.clientY]
+        }
+        canvas.onmousemove = (e) => {
+          //当painting为true的时候 开启画板
+          if (painting) {
+            drawLine(last[0], last[1], e.clientX, e.clientY)
+            // 实时更新x,y 让上一次的等于这一次的x和y
+            last = [e.clientX, e.clientY]
+          }
+        }
+        //鼠标松开
+        canvas.onmouseup = () => {
+          painting = false
+        }
+      }
+
+      function drawLine(x1, y1, x2, y2) {
+        ctx.beginPath()
+        ctx.moveTo(x1, y1)
+        ctx.lineTo(x2, y2)
+        ctx.stroke()
+      }
+    </script>
+  </body>
+</html>

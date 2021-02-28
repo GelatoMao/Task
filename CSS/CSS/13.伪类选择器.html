@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+/*    将div中的第一个p元素的字体颜色设置为红色*/
+/*
+        div p:first-child{
+            color: red;
+        }
+*/
+        
+/*
+        div p:first-of-type{
+            color: red;
+        }
+*/
+        
+/*
+        p:last-child{
+            color: blueviolet
+        }
+*/
+        
+/*
+        p:last-of-type{
+            color: lawngreen
+        }
+*/
+        
+/*
+        p:nth-child(even){
+            color: red
+        }
+*/
+            
+        p:nth-child(2n+1){
+            color: red
+        }
+        
+/*
+        p:only-child{
+            color: yellow
+        }
+*/
+    
+        p:only-of-type{
+            color: yellow
+        }
+        
+        .box1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        
+        .box2{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+        
+        div:empty{
+            background-color: red
+        }
+        
+        p:not(.p1){
+            background-color: skyblue
+        }
+    </style>
+</head>
+<body>
+   
+<!-- 
+       伪类选择器，一般用来表示元素的一些特殊的状态或者特殊的位置
+       :first-child
+           - 表示第一个子元素（在所有的子元素中查找）
+       :first-of-type   
+           - 同类型中的第一个子元素
+       :last-child
+       :last-of-type
+       
+       :nth-child()
+           - 第n个子元素 odd表示单数 even表示双数
+       :nth-of-type()
+           - 同类型的第n个子元素 ...
+       :only-child
+           - 唯一的一个子元素
+       :only-of-type
+           - 同类型中唯一的一个子元素
+       :empty
+           - 匹配空元素
+       :not()
+           - 否定伪类，表示除了
+           
+       -->
+       
+       <div>
+           <p>我是第二个p元素</p>
+           <p>我是第三个p元素</p>
+           <p class='p1'>我是第一个p元素</p>
+           <p>我是第一个p元素</p>
+           <p>我是第一个p元素</p>
+           <p>我是第一个p元素</p>
+           <p>我是第一个p元素</p>
+           <p>我是第一个p元素</p>
+           <p>我是第一个p元素</p>
+           <p>我是第一个p元素</p>
+       </div>
+       
+       <div>
+           <p>我是下边div中的p元素</p>
+           <span></span>
+       </div>
+       
+       <div class='box1'><p>p元素</p></div>
+       <div class='box2'></div>
+       
+<!--       <p>hello</p>-->
+</body>
+</html>

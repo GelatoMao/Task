@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Document</title>
+    <style>
+      #demo {
+        width: 100px;
+        height: 200px;
+        border: 1px solid red;
+        margin: 50px;
+      }
+      /* x轴移50 y轴移50 z轴移200 因为z轴是3维空间的 需要在父元素上添加perspective属性 */
+      #demo:hover {
+        transform: translate3d(50px, 50px, 200px);
+      }
+      .wrapper {
+        perspective: 1000px;
+        border: 1px solid black;
+      }
+
+      #demo1 {
+        width: 100px;
+        height: 200px;
+        border: 1px solid pink;
+        margin: 50px;
+      }
+      #demo1:hover {
+        /* 控制缩放的 */
+        transform: scale(1.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="demo"></div>
+    </div>
+
+    <div class="wrapper1">
+      <div id="demo1"></div>
+    </div>
+  </body>
+</html>

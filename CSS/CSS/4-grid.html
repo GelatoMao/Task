@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        display: grid;
+        /* 5列 */
+        grid-template-columns: 40px 50px auto 50px 40px;
+        /* 3行 */
+        grid-template-rows: 60px 300px 100px;
+        border: 1px solid red;
+      }
+      .a ,.b,.c{
+        border: 1px solid black;
+      }
+
+      /* 设置占满第一行 第一列 */
+      /* 设置头部 */
+      .a{
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 6;
+      }
+
+    /* 注意第一行第一列已经被a所占据，所以b的初始占据的行是300 */
+    /* 设置侧边栏 */
+    .b{
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="a"></div>
+      <div class="b"></div>
+      <div class="c"></div>
+      <div class="d"></div>
+      <div class="e"></div>
+    </div>
+  </body>
+</html>

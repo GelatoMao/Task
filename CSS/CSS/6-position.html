@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Document</title>
+    <style>
+      button {
+        margin: 200px;
+        position: relative;
+        border: 1px solid red;
+      }
+
+      button span {
+        position: absolute;
+        border: 1px solid blue;
+        white-space: nowrap;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+      }
+
+      button:hover span{
+        display: block;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <button>点击<span class="tips">提示内容</span></button>
+  </body>
+</html>

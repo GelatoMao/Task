@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Document</title>
+    <style>
+      .demo {
+        background: rgb(120, 184, 211);
+        width: 200px;
+        height: 200px;
+        border: 1px solid rgba(255, 0, 0, 0.2);
+        padding: 10px;
+      }
+
+      .childDiv {
+        background: #fff;
+        height: 50px;
+        color: red;
+        margin-top: -10px;
+      }
+
+      .float {
+        float: left;
+        background: green;
+        height: 50px;
+        width: 50px;
+        color: red;
+      }
+      .text {
+        margin-left: -10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 正常文档流中的文字内容是会覆盖浮动元素的，而正常文档流中的文字之间覆盖的原则是，后面的覆盖前面的 -->
+    <div class="demo">
+      <div class="float">浮动文字</div>
+      <span class="text">你好</span>
+      <div class="childDiv">测试</div>
+    </div>
+  </body>
+</html>
